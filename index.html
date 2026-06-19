@@ -1,24 +1,21 @@
 <!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone=no">
-<title>Neural-Scan - Detección de Cáncer de Pulmón mediante IA</title>
-<meta name="author" content="Francisco Daniel Navarrete Castro">
-<meta name="description" content="Sistema de Apoyo al Diagnóstico Radiológico mediante Redes Convolucionales Convolucionales">
-<meta name="keywords" content="ia, unet, resnet, uaemex, cáncer de pulmón, tomografía, redes neuronales">
-
-<link href="assets/images/icons/favicon.png" rel="shortcut icon">
-
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/fonts/iconfonts.css">
-<link rel="stylesheet" href="assets/css/plugins.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
-<link rel="stylesheet" href="assets/css/color.css">
-
-<style>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <title>Neural-Scan - Detección de Cáncer de Pulmón mediante IA</title>
+        <meta name="author" content="Francisco Daniel Navarrete Castro">
+        <meta name="description" content="Sistema de Apoyo al Diagnóstico Radiológico mediante Redes Convolucionales Convolucionales">
+        <meta name="keywords" content="ia, unet, resnet, uaemex, cáncer de pulmón, tomografía, redes neuronales">
+        <link href="assets/images/icons/favicon.png" rel="shortcut icon">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/fonts/iconfonts.css">
+        <link rel="stylesheet" href="assets/css/plugins.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/color.css">
+        <style>
     /* Ajuste para que el menú principal no se baje a dos líneas y se vea centrado */
     .main-navigation .sf-menu {
         display: flex !important;
@@ -128,65 +125,99 @@
             text-align: center;
         }
     }
-</style>
-</head>
-<body>
-<div id="dtr-wrapper" class="clearfix">
-
-    <div class="dtr-preloader">
-        <div class="dtr-preloader-inner">
-            <div class="dtr-loader">Cargando...</div>
-        </div>
-    </div>
-    <div class="dtr-responsive-header header-with-slick-menu fixed-top">
-        <div class="container">
-            <div class="dtr-responsive-header-left"> 
-                <a class="dtr-logo" href="index.html"><img src="assets/images/icons/NeuroScanBlanco.png" alt="logo"></a> 
+        </style>
+    </head>
+    <body>
+        <div id="dtr-wrapper" class="clearfix">
+            <div class="dtr-preloader">
+                <div class="dtr-preloader-inner">
+                    <div class="dtr-loader">Cargando...</div>
+                </div>
             </div>
-            <button id="dtr-menu-button" class="dtr-hamburger" type="button"><span class="dtr-hamburger-lines-wrapper"><span class="dtr-hamburger-lines"></span></span></button>
-        </div>
-        <div class="dtr-responsive-header-menu"></div>
-    </div>
-
-    <header id="dtr-header-global" class="fixed-top" style="background-color: #006341;">
-        <div class="d-flex align-items-center justify-content-between">
-
-            <div class="dtr-header-left">
-                <a class="logo-default dtr-scroll-link" href="#home"><img src="assets/images/icons/NeuroScanMegro.png" alt="logo" style="max-height: 40px;"></a>
-                <a class="logo-alt dtr-scroll-link" href="#home"><img src="assets/images/icons/NeuroScanMegro.png" alt="logo" style="max-height: 40px;"></a>
+            <div class="dtr-responsive-header header-with-slick-menu fixed-top">
+                <div class="container">
+                    <div class="dtr-responsive-header-left">
+                        <a class="dtr-logo" href="index.html">
+                            <img src="assets/images/icons/NeuroScanBlanco.png" alt="logo">
+                        </a>
+                    </div>
+                    <button id="dtr-menu-button" class="dtr-hamburger" type="button">
+                        <span class="dtr-hamburger-lines-wrapper">
+                            <span class="dtr-hamburger-lines"></span>
+                        </span>
+                    </button>
+                </div>
+                <div class="dtr-responsive-header-menu"></div>
             </div>
-
-            <div class="main-navigation">
-                <ul class="sf-menu dtr-scrollspy dtr-nav light-nav-on-load light-nav-on-scroll">
-                    <li> <a class="nav-link" href="#home">Inicio</a> </li>
-                    <li> <a class="nav-link" href="#about">Planteamiento</a> </li>
-                    <li> <a class="nav-link" href="#services">Tecnología</a> </li>
-                    <li> <a class="nav-link" href="#plans">Comparativa</a> </li>
-                    <li> <a class="nav-link" href="#blog">Metodología</a> </li>
-                    <li> <a class="nav-link" href="#dtr-footer">Contacto</a></li>
-                </ul>
-            </div>
-
-            <div class="dtr-header-social dtr-social-large dtr-social-light">
-                <ul class="dtr-social-list">
-                    <li><a href="#" class="dtr-twitter" target="_blank" title="twitter"></a></li>
-                    <li><a href="#" class="dtr-facebook" target="_blank" title="facebook"></a></li>
-                    <li><a href="#" class="dtr-whatsapp" target="_blank" title="whatsapp"></a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <div id="dtr-main-content">
-
-        <section id="home" class="dtr-section dtr-box-layout dtr-hero-section-top-padding bg-grey" style="background-color: #f4f7f6;">
-            <div class="container">
-                <div class="row d-flex dtr-py-100 align-items-center">
-                    
-                    <div class="col-12 col-md-6">
-                        <div class="hero-image-wrapper" style="position: relative; padding: 15px; display: flex; align-items: center; justify-content: center;">
-                            
-                            <div class="blur-background" style="
+            <header id="dtr-header-global" class="fixed-top" style="background-color: #006341;">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="dtr-header-left">
+                        <a class="logo-default dtr-scroll-link" href="#home">
+                            <img src="assets/images/icons/NeuroScanMegro.png" alt="logo" style="max-height: 40px;">
+                        </a>
+                        <a class="logo-alt dtr-scroll-link" href="#home">
+                            <img src="assets/images/icons/NeuroScanMegro.png" alt="logo" style="max-height: 40px;">
+                        </a>
+                    </div>
+                    <div class="main-navigation">
+                        <ul class="sf-menu dtr-scrollspy dtr-nav light-nav-on-load light-nav-on-scroll">
+                            <li>
+                                <a class="nav-link" href="#home">Inicio</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#about">Planteamiento</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#services">Tecnología</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#plans">Comparativa</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#blog">Metodología</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#dtr-footer">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dtr-header-social dtr-social-large dtr-social-light">
+                        <ul class="dtr-social-list">
+                            <li>
+                                <a
+                                    href="#"
+                                    class="dtr-twitter"
+                                    target="_blank"
+                                    title="twitter"
+                                ></a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="dtr-facebook"
+                                    target="_blank"
+                                    title="facebook"
+                                ></a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="dtr-whatsapp"
+                                    target="_blank"
+                                    title="whatsapp"
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div id="dtr-main-content">
+                <section id="home" class="dtr-section dtr-box-layout dtr-hero-section-top-padding bg-grey" style="background-color: #f4f7f6;">
+                    <div class="container">
+                        <div class="row d-flex dtr-py-100 align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="hero-image-wrapper" style="position: relative; padding: 15px; display: flex; align-items: center; justify-content: center;">
+                                    <div class="blur-background" style="
                                 position: absolute;
                                 width: 100%;
                                 height: 100%;
@@ -199,8 +230,7 @@
                                 transform: scale(0.95);
                                 z-index: 1;
                             "></div>
-                            
-                            <div class="main-image-container" style="
+                                    <div class="main-image-container" style="
                                 position: relative;
                                 z-index: 2;
                                 border-radius: 20px;
@@ -210,641 +240,727 @@
                                 background: #ffffff;
                                 transition: transform 0.3s ease;
                             ">
-                                <img src="assets/images/icons/PulmonAnalis.png" alt="Análisis de Tomografía" style="
+                                        <img src="assets/images/icons/PulmonAnalis.png" alt="Análisis de Tomografía" style="
                                     width: 100%;
                                     height: auto;
                                     max-height: 400px;
                                     object-fit: cover;
                                     display: block;
                                 ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="dtr-hero-box dtr-pb-0" style="padding-left: 20px;">
+                                    <h1 style="color: #006341; font-weight: 800; font-size: 38px; line-height: 1.2; margin-bottom: 20px;">Clasificación Automatizada de Nódulos Pulmonares</h1>
+                                    <p style="text-align: justify; color: #444; line-height: 1.7; font-size: 16px;">
+                                        Este proyecto de ingeniería aborda el desarrollo de un marco analítico integral para procesar tomografías computarizadas e identificar lesiones malignas, benignas o estados normales. A través de arquitecturas avanzadas y técnicas especializadas de visión artificial, el sistema mitiga el error interpretativo humano.
+                                    </p>
+                                    <p class="text-size-lg font-weight-extrabold" style="color: #FFB81C; font-size: 18px; margin-top: 15px;">
+                                        <i class="icon-check-circle"></i>
+                                        Validación experimental mediante k-folds con alta precisión.
+                                    </p>
+                                    <a href="#about" class="dtr-btn dtr-mt-40" style="background-color: #006341; color: #ffffff; border-radius: 50px; padding: 12px 35px; font-weight: bold; border: none; box-shadow: 0 5px 15px rgba(0,99,65,0.3);">Explorar Proyecto</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-12 col-md-6">
-                        <div class="dtr-hero-box dtr-pb-0" style="padding-left: 20px;">
-                            <h1 style="color: #006341; font-weight: 800; font-size: 38px; line-height: 1.2; margin-bottom: 20px;">Clasificación Automatizada de Nódulos Pulmonares</h1>
-                            <p style="text-align: justify; color: #444; line-height: 1.7; font-size: 16px;">
-                                Este proyecto de ingeniería aborda el desarrollo de un marco analítico integral para procesar tomografías computarizadas e identificar lesiones malignas, benignas o estados normales. A través de arquitecturas avanzadas y técnicas especializadas de visión artificial, el sistema mitiga el error interpretativo humano.
-                            </p>
-                            <p class="text-size-lg font-weight-extrabold" style="color: #FFB81C; font-size: 18px; margin-top: 15px;">
-                                <i class="icon-check-circle"></i> Validación experimental mediante k-folds con alta precisión.
-                            </p>
-                            <a href="#about" class="dtr-btn dtr-mt-40" style="background-color: #006341; color: #ffffff; border-radius: 50px; padding: 12px 35px; font-weight: bold; border: none; box-shadow: 0 5px 15px rgba(0,99,65,0.3);">Explorar Proyecto</a> 
-                        </div>
+                </section>
+                <section class="dtr-section dtr-box-layout dtr-py-100" style="background-color: #f4f7f6;">
+                    <div class="dtr-section-heading text-center dtr-mb-80">
+                        <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                            ¿Por qué es vital automatizar el diagnóstico?
+                        </h2>
+                        <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="dtr-section dtr-box-layout dtr-py-100" style="background-color: #f4f7f6;">
-            <div class="dtr-section-heading text-center dtr-mb-80">
-                <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
-                    ¿Por qué es vital automatizar el diagnóstico?
-                </h2>
-                <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
-                        <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                            <img src="assets/images/icons/TumorPulmon.png" alt="Impacto" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        </div>
-                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Impacto y Mortalidad</h4>
-                        <p style="text-align: justify; color: #444; line-height: 1.6;"> El cáncer de pulmón es el tipo de cáncer más frecuente en ambos sexos en México. Cada año se registran más de <b>6,700 defunciones</b> en el país debido a la alta agresividad de esta enfermedad. </p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4 dtr-sm-mt-30">
-                    <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
-                        <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                            <img src="assets/images/icons/tiempo.png" alt="Tiempo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        </div>
-                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">El Factor Tiempo</h4>
-                        <p style="text-align: justify; color: #444; line-height: 1.6;"> El tratamiento efectivo depende de la detección temprana. Actualmente, solo el <b>0.6%</b> de los tumores se diagnostican a tiempo, mientras que el <b>65%</b> se detecta en periodos críticos. </p>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4 dtr-sm-mt-30">
-                    <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
-                        <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-                            <img src="assets/images/icons/diagnostico.png" alt="IA" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        </div>
-                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Apoyo al Diagnóstico</h4>
-                        <p style="text-align: justify; color: #444; line-height: 1.6;"> La IA permite procesar tomografías con alta eficiencia. Estos sistemas apoyan al radiólogo reduciendo la variabilidad humana y minimizando <b>falsos negativos</b> críticos. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="dataset-detail" class="dtr-section dtr-py-100 bg-white">
-            <div class="container">
-                <div class="row align-items-center">
-                    
-                    <div class="col-12 col-lg-6">
-                        <h3 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Distribución Analítica del Dataset</h3>
-                        <p style="text-align: justify; color: #444; line-height: 1.6;">
-                            Uno de los desafíos más críticos en el entrenamiento de redes neuronales convolucionales aplicadas al entorno médico es el sesgo por desbalanceo de clases. Si un modelo se entrena con una abrumadora mayoría de casos malignos, desarrollará una preocupante tendencia a generar falsos positivos en entornos clínicos reales. 
-                        </p>
-                        <p style="text-align: justify; color: #444; line-height: 1.6;">
-                            Para garantizar la equidad predictiva y un coeficiente Kappa de Cohen estadísticamente válido, se aplicó un pipeline automatizado de balanceo sintético y geométrico.
-                        </p>
-                    </div>
-                    
-                    <div class="col-12 col-lg-6 dtr-sm-mt-30">
-                        <div class="table-responsive" style="box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden;">
-                            <table class="table" style="margin: 0; background: #fff;">
-                                <thead style="background-color: #006341; color: #ffffff;">
-                                    <tr>
-                                        <th style="padding: 15px;">Clase Diagnóstica</th>
-                                        <th style="padding: 15px;">Casos Originales</th>
-                                        <th style="padding: 15px;">Post-Procesamiento</th>
-                                        <th style="padding: 15px;">Estado de Carga</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="padding: 15px; font-weight: bold; color: #333;">Maligno (Tumoral)</td>
-                                        <td style="padding: 15px; color: #555;">561 imágenes</td>
-                                        <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
-                                        <td style="padding: 15px;"><span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Balanceado</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 15px; font-weight: bold; color: #333;">Benigno (Nódulo Sano)</td>
-                                        <td style="padding: 15px; color: #555;">120 imágenes</td>
-                                        <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
-                                        <td style="padding: 15px;"><span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Augmentated</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 15px; font-weight: bold; color: #333;">Normal (Control)</td>
-                                        <td style="padding: 15px; color: #555;">416 imágenes</td>
-                                        <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
-                                        <td style="padding: 15px;"><span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Balanceado</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="dtr-mb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="dtr-about">
-                            
-                            <div class="dtr-about-content bg-dark" style="padding: 50px 40px;">
-                                <p class="text-size-md font-weight-extrabold color-gold" style="text-transform: uppercase; letter-spacing: 1px;">Planteamiento del Problema</p>
-                                <h2 class="color-white" style="font-size: 28px; margin-bottom: 25px;">Definición y Delimitación</h2>
-                                <p class="color-grey" style="text-align: justify; line-height: 1.7; margin-bottom: 20px;">
-                                    Los métodos convencionales de diagnóstico dependen por completo de la inspección visual y la experiencia del medico. 
-                                </p>
-                                <p class="color-grey" style="text-align: justify; line-height: 1.7;">
-                                    Ante esto, existe una brecha crítica en la literatura respecto a qué arquitectura convolucional profunda optimiza mejor la detección según las características del set de datos. Este proyecto delimita y evalúa el comportamiento de los modelos frente a escenarios controlados de preprocesamiento para mitigar la tasa de falsos negativos en fases tempranas.
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
+                                <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+                                    <img src="assets/images/icons/TumorPulmon.png" alt="Impacto" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Impacto y Mortalidad</h4>
+                                <p style="text-align: justify; color: #444; line-height: 1.6;"> El cáncer de pulmón es el tipo de cáncer más frecuente en ambos sexos en México. Cada año se registran más de
+                                    <b>6,700 defunciones</b> en el país debido a la alta agresividad de esta enfermedad.
                                 </p>
                             </div>
-
-                            <div class="dtr-about-img" style="background-image: url(assets/images/icons/Diagon.jpg); background-size: cover; background-position: center;"> </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="dtr-section dtr-section-with-bg dtr-py-100" style="background-color: #FFB81C; background-image: url(assets/images/subscribe-bg.png); background-size: cover;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center dtr-mb-50">
-                        <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Impacto y Alcance del Proyecto</h2>
-                        <div style="width: 80px; height: 5px; background-color: #006341; margin: 0 auto;"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
-                            <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Estrategias de Preprocesamiento</h4>
-                            <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
-                                Implementación de transformaciones complejas como <b>Grid Distortion</b>, <b>CLAHE</b> y <b>Gauss Noise</b> para simular variaciones clínicas reales. Esto permite que la IA aprenda bajo condiciones técnicas diversas.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 dtr-sm-mt-30">
-                        <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
-                            <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Precisión de Alto Nivel</h4>
-                            <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
-                                El modelo <b>ResNet50</b> alcanzó una precisión del <b>99.82%</b> y una sensibilidad del <b>99.81%</b>. El sistema logra clasificar imágenes en un tiempo récord de solo <b>15.91 segundos</b>.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 dtr-sm-mt-30">
-                        <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
-                            <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Apoyo al Diagnóstico Médico</h4>
-                            <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
-                                Generación de un marco reutilizable para el desarrollo de sistemas de detección temprana. El objetivo es reducir la brecha diagnóstica en México, donde solo el <b>0.6%</b> de los casos se detectan a tiempo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row dtr-mt-50">
-                    <div class="col-12 text-center">
-                        <p style="font-style: italic; color: #006341; font-weight: 600; background: rgba(255,255,255,0.5); display: inline-block; padding: 10px 25px; border-radius: 50px;">
-                            Metodología validada mediante esquema estratificado de k=5 folds.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="dtr-section dtr-py-100" style="background-color: #f9f9f9;">
-            <div class="container">
-                <div class="dtr-section-heading text-center dtr-mb-80">
-                    <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Tecnologías y Metodología Aplicada</h2>
-                    <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-6 dtr-mb-30">
-                        <div class="tech-card">
-                            <div class="tech-badge">01</div>
-                            <div class="tech-content">
-                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Arquitecturas CNN</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Evaluación y adaptación de arquitecturas de aprendizaje profundo líderes en la industria: <b>ResNet50, InceptionV3 y DenseNet201</b>. Estas redes fueron entrenadas utilizando <i>transfer learning</i> para maximizar la extracción de características en imágenes médicas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 dtr-mb-30">
-                        <div class="tech-card">
-                            <div class="tech-badge">02</div>
-                            <div class="tech-content">
-                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Preprocesamiento Avanzado</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Implementación de técnicas críticas de procesamiento digital de imágenes como <b>CLAHE</b> para la mejora de contraste y <b>Grid Distortion</b> para simular variaciones clínicas reales. Esto permite que el sistema sea robusto ante diferentes condiciones de adquisición de tomografías.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-6 dtr-mb-30 dtr-sm-mb-30">
-                        <div class="tech-card">
-                            <div class="tech-badge">03</div>
-                            <div class="tech-content">
-                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Rigor Metodológico</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Validación de resultados mediante un esquema de validación cruzada estratificada (<i>k=5 folds</i>) y un conjunto de prueba independiente. Este enfoque garantiza que la alta precisión obtenida sea reproducible y no producto de un sobreajuste de los datos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="tech-card">
-                            <div class="tech-badge">04</div>
-                            <div class="tech-content">
-                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Diagnóstico Multiclase</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Clasificación automatizada de tomografías computarizadas en tres categorías esenciales para la toma de decisiones médicas: <b>Benigno, Maligno y Normal</b> (sano). El sistema busca reducir la variabilidad humana y detectar lesiones en etapas tempranas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Rigor-matematico" class="dtr-section dtr-py-100" style="background-color: #006341; color: #ffffff;">
-            <div class="container">
-                <div class="row text-center dtr-mb-50">
-                    <div class="col-12">
-                        <h2 style="color: #FFB81C; font-weight: 800; text-transform: uppercase;">Criterios Estadísticos de Validation</h2>
-                        <p>Fórmulas de optimización aplicadas para mitigar falsos negativos</p>
-                        <div style="width: 60px; height: 3px; background-color: #ffffff; margin: 15px auto 0;"></div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
-                            <h5 style="color: #FFB81C; font-weight: 700;">Sensibilidad (Recall)</h5>
-                            <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
-                                Mide la capacidad del sistema para detectar correctamente a los pacientes enfermos. En oncología pulmonar, esta métrica es la más crítica, ya que un falso negativo puede retrasar un tratamiento vital.
-                            </p>
-                            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
-                                Sensibilidad = VP / (VP + FN)
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12 col-md-4 dtr-sm-mt-30">
-                        <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
-                            <h5 style="color: #FFB81C; font-weight: 700;">Precisión (Precision)</h5>
-                            <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
-                                Evalúa el porcentaje de predicciones positivas que resultaron ser correctas. Un valor alto asegura que cuando la IA marca una tomografía como "Maligna", el radiólogo cuenta con un alto grado de certeza inicial.
-                            </p>
-                            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
-                                Precisión = VP / (VP + FP)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4 dtr-sm-mt-30">
-                        <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
-                            <h5 style="color: #FFB81C; font-weight: 700;">F1-Score</h5>
-                            <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
-                                Representa la media armónica entre la precisión y la sensibilidad. Al buscar un equilibrio perfecto entre ambas métricas, el F1-Score consolidado del 99.81% demuestra la estabilidad absoluta de la arquitectura propuesta.
-                            </p>
-                            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
-                                F1-Score = 2 * (P * S) / (P + S)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="plans" class="dtr-section overflow-hidden dtr-section-with-bg dtr-py-100 color-white" style="background-image: url(assets/images/testimonial-bg.jpg);">
-            <div class="dtr-overlay" style="background-color: rgba(0, 99, 65, 0.92);"></div>
-            <div class="container">
-                <div class="row dtr-overlay-content dtr-mb-50">
-                    <div class="col-12 text-center">
-                        <h2 style="color: #FFB81C; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Comparativa de Modelos CNN</h2>
-                        <div style="width: 60px; height: 3px; background-color: #ffffff; margin: 15px auto 0;"></div>
-                    </div>
-                </div>
-                <div class="row dtr-overlay-content">
-                    <div class="col-12 col-lg-10 offset-lg-1">
-                        <i class="dtr-testimonial-icon icon-np_quote2 color-gold" style="display: none;"></i>
-                        <div class="dtr-slick-slider slick-xl-arrows dtr-testimonial-number-slider text-center">
-                            <div class="dtr-testimonial">
-                                <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Este modelo demostró ser el más estable y eficiente computacionalmente bajo el escenario de validación. Alcanzó la mejor combinación de métricas con una precisión del <b>99.82%</b>, una sensibilidad del <b>99.81%</b> y un tiempo récord de clasificación de <b>15.91 segundos</b>. Su arquitectura con conexiones residuales evitó el desvanecimiento del gradiente, consolidándolo como la opción óptima para el sistema de apoyo al diagnóstico propuesto.</div>
-                                <div class="dtr-client-info clearfix dtr-mt-30">
-                                    <div class="dtr-testimonial-user"><img src="assets/images/user-1.jpg" alt="ResNet50" style="border: 3px solid #FFB81C;"> </div>
-                                    <div class="dtr-testimonial-user-info">
-                                        <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">ResNet50</h5>
-                                        <span class="dtr-client-job color-white">El Modelo Ganador</span> 
-                                    </div>
+                        <div class="col-12 col-md-4 dtr-sm-mt-30">
+                            <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
+                                <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+                                    <img src="assets/images/icons/tiempo.png" alt="Tiempo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                 </div>
+                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">El Factor Tiempo</h4>
+                                <p style="text-align: justify; color: #444; line-height: 1.6;"> El tratamiento efectivo depende de la detección temprana. Actualmente, solo el
+                                    <b>0.6%</b> de los tumores se diagnostican a tiempo, mientras que el
+                                    <b>65%</b> se detecta en periodos críticos.
+                                </p>
                             </div>
-                            <div class="dtr-testimonial">
-                                <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Mostró un desempeño altamente competitivo durante la phase de entrenamiento y validación cruzada. Su arquitectura basada en módulos Inception permite extraer características a múltiples escalas de forma paralela, logrando una excelente precisión del <b>99.81%</b>. Sin embargo, su complejidad estructural requirió un tiempo de clasificación mayor, registrando <b>24.46 segundos</b> por lote de imágenes médicas.</div>
-                                <div class="dtr-client-info clearfix dtr-mt-30">
-                                    <div class="dtr-testimonial-user"><img src="assets/images/user-2.jpg" alt="InceptionV3" style="border: 3px solid #FFB81C;"> </div>
-                                    <div class="dtr-testimonial-user-info">
-                                        <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">InceptionV3</h5>
-                                        <span class="dtr-client-job color-white">Extracción a Múltiples Escalas</span> 
-                                    </div>
+                        </div>
+                        <div class="col-12 col-md-4 dtr-sm-mt-30">
+                            <div style="background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-bottom: 5px solid #FFB81C; height: 100%;">
+                                <div style="width: 80px; height: 80px; background: rgba(0, 99, 65, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+                                    <img src="assets/images/icons/diagnostico.png" alt="IA" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                 </div>
+                                <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Apoyo al Diagnóstico</h4>
+                                <p style="text-align: justify; color: #444; line-height: 1.6;"> La IA permite procesar tomografías con alta eficiencia. Estos sistemas apoyan al radiólogo reduciendo la variabilidad humana y minimizando
+                                    <b>falsos negativos</b> críticos.
+                                </p>
                             </div>
-                            <div class="dtr-testimonial">
-                                <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Esta red destacó por su fuerte reutilización de características gracias a su arquitectura de conexiones densas entre capas. Obtuvo una precisión diagnóstica del <b>98.52%</b> en la clasificación multiclase. Aunque su convergencia fue la más lenta del estudio con <b>25.84 segundos</b>, demostró una notable capacidad para la identificación de características complejas en las tomografías.</div>
-                                <div class="dtr-client-info clearfix dtr-mt-30">
-                                    <div class="dtr-testimonial-user"><img src="assets/images/user-3.jpg" alt="DenseNet201" style="border: 3px solid #FFB81C;"> </div>
-                                    <div class="dtr-testimonial-user-info">
-                                        <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">DenseNet201</h5>
-                                        <span class="dtr-client-job color-white">Conexiones Densas</span> 
-                                    </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="dataset-detail" class="dtr-section dtr-py-100 bg-white">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6">
+                                <h3 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Distribución Analítica del Dataset</h3>
+                                <p style="text-align: justify; color: #444; line-height: 1.6;">
+                                    Uno de los desafíos más críticos en el entrenamiento de redes neuronales convolucionales aplicadas al entorno médico es el sesgo por desbalanceo de clases. Si un modelo se entrena con una abrumadora mayoría de casos malignos, desarrollará una preocupante tendencia a generar falsos positivos en entornos clínicos reales.
+                                </p>
+                                <p style="text-align: justify; color: #444; line-height: 1.6;">
+                                    Para garantizar la equidad predictiva y un coeficiente Kappa de Cohen estadísticamente válido, se aplicó un pipeline automatizado de balanceo sintético y geométrico.
+                                </p>
+                            </div>
+                            <div class="col-12 col-lg-6 dtr-sm-mt-30">
+                                <div class="table-responsive" style="box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden;">
+                                    <table class="table" style="margin: 0; background: #fff;">
+                                        <thead style="background-color: #006341; color: #ffffff;">
+                                            <tr>
+                                                <th style="padding: 15px;">Clase Diagnóstica</th>
+                                                <th style="padding: 15px;">Casos Originales</th>
+                                                <th style="padding: 15px;">Post-Procesamiento</th>
+                                                <th style="padding: 15px;">Estado de Carga</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 15px; font-weight: bold; color: #333;">Maligno (Tumoral)</td>
+                                                <td style="padding: 15px; color: #555;">561 imágenes</td>
+                                                <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
+                                                <td style="padding: 15px;">
+                                                    <span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Balanceado</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 15px; font-weight: bold; color: #333;">Benigno (Nódulo Sano)</td>
+                                                <td style="padding: 15px; color: #555;">120 imágenes</td>
+                                                <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
+                                                <td style="padding: 15px;">
+                                                    <span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Augmentated</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 15px; font-weight: bold; color: #333;">Normal (Control)</td>
+                                                <td style="padding: 15px; color: #555;">416 imágenes</td>
+                                                <td style="padding: 15px; font-weight: bold; color: #006341;">1,000 imágenes</td>
+                                                <td style="padding: 15px;">
+                                                    <span style="background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">Balanceado</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog" class="dtr-section dtr-pt-100" style="background-color: #f4f7f6;">
-            <div class="container">
-                <div class="dtr-section-heading text-center dtr-mb-80">
-                    <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Metodología de la Investigación</h2>
-                    <p style="color: #666;">Flujo de trabajo detallado para la evaluación de modelos CNN</p>
-                    <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
-                </div>
-                <div class="row">
-                    <div class="col-12 dtr-mb-40">
-                        <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
-                            
-                            <div class="dtr-pricing-img" style="
+                </section>
+                <section id="about" class="dtr-mb-100">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="dtr-about">
+                                    <div class="dtr-about-content bg-dark" style="padding: 50px 40px;">
+                                        <p class="text-size-md font-weight-extrabold color-gold" style="text-transform: uppercase; letter-spacing: 1px;">Planteamiento del Problema</p>
+                                        <h2 class="color-white" style="font-size: 28px; margin-bottom: 25px;">Definición y Delimitación</h2>
+                                        <p class="color-grey" style="text-align: justify; line-height: 1.7; margin-bottom: 20px;">
+                                            Los métodos convencionales de diagnóstico dependen por completo de la inspección visual y la experiencia del medico.
+                                        </p>
+                                        <p class="color-grey" style="text-align: justify; line-height: 1.7;">
+                                            Ante esto, existe una brecha crítica en la literatura respecto a qué arquitectura convolucional profunda optimiza mejor la detección según las características del set de datos. Este proyecto delimita y evalúa el comportamiento de los modelos frente a escenarios controlados de preprocesamiento para mitigar la tasa de falsos negativos en fases tempranas.
+                                        </p>
+                                    </div>
+                                    <div class="dtr-about-img" style="background-image: url(assets/images/icons/Diagon.jpg); background-size: cover; background-position: center;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="dtr-section dtr-section-with-bg dtr-py-100" style="background-color: #FFB81C; background-image: url(assets/images/subscribe-bg.png); background-size: cover;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center dtr-mb-50">
+                                <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Impacto y Alcance del Proyecto</h2>
+                                <div style="width: 80px; height: 5px; background-color: #006341; margin: 0 auto;"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
+                                    <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Estrategias de Preprocesamiento</h4>
+                                    <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
+                                        Implementación de transformaciones complejas como
+                                        <b>Grid Distortion</b>,
+                                        <b>CLAHE</b> y
+                                        <b>Gauss Noise</b>
+                                        para simular variaciones clínicas reales. Esto permite que la IA aprenda bajo condiciones técnicas diversas.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 dtr-sm-mt-30">
+                                <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
+                                    <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Precisión de Alto Nivel</h4>
+                                    <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
+                                        El modelo
+                                        <b>ResNet50</b> alcanzó una precisión del
+                                        <b>99.82%</b> y una sensibilidad del
+                                        <b>99.81%</b>. El sistema logra clasificar imágenes en un tiempo récord de solo
+                                        <b>15.91 segundos</b>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 dtr-sm-mt-30">
+                                <div style="background: #ffffff; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-top: 8px solid #006341; height: 100%;">
+                                    <h4 style="color: #006341; font-weight: 700; margin-bottom: 20px;">Apoyo al Diagnóstico Médico</h4>
+                                    <p style="text-align: justify; color: #2d3436; line-height: 1.6; margin: 0;">
+                                        Generación de un marco reutilizable para el desarrollo de sistemas de detección temprana. El objetivo es reducir la brecha diagnóstica en México, donde solo el
+                                        <b>0.6%</b>
+                                        de los casos se detectan a tiempo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row dtr-mt-50">
+                            <div class="col-12 text-center">
+                                <p style="font-style: italic; color: #006341; font-weight: 600; background: rgba(255,255,255,0.5); display: inline-block; padding: 10px 25px; border-radius: 50px;">
+                                    Metodología validada mediante esquema estratificado de k=5 folds.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="services" class="dtr-section dtr-py-100" style="background-color: #f9f9f9;">
+                    <div class="container">
+                        <div class="dtr-section-heading text-center dtr-mb-80">
+                            <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Tecnologías y Metodología Aplicada</h2>
+                            <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 dtr-mb-30">
+                                <div class="tech-card">
+                                    <div class="tech-badge">01</div>
+                                    <div class="tech-content">
+                                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Arquitecturas CNN</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Evaluación y adaptación de arquitecturas de aprendizaje profundo líderes en la industria:
+                                            <b>ResNet50, InceptionV3 y DenseNet201</b>. Estas redes fueron entrenadas utilizando
+                                            <i>transfer learning</i> para maximizar la extracción de características en imágenes médicas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 dtr-mb-30">
+                                <div class="tech-card">
+                                    <div class="tech-badge">02</div>
+                                    <div class="tech-content">
+                                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Preprocesamiento Avanzado</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Implementación de técnicas críticas de procesamiento digital de imágenes como
+                                            <b>CLAHE</b> para la mejora de contraste y
+                                            <b>Grid Distortion</b> para simular variaciones clínicas reales. Esto permite que el sistema sea robusto ante diferentes condiciones de adquisición de tomografías.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 dtr-mb-30 dtr-sm-mb-30">
+                                <div class="tech-card">
+                                    <div class="tech-badge">03</div>
+                                    <div class="tech-content">
+                                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Rigor Metodológico</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Validación de resultados mediante un esquema de validación cruzada estratificada (
+                                            <i>k=5 folds</i>) y un conjunto de prueba independiente. Este enfoque garantiza que la alta precisión obtenida sea reproducible y no producto de un sobreajuste de los datos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="tech-card">
+                                    <div class="tech-badge">04</div>
+                                    <div class="tech-content">
+                                        <h4 style="color: #006341; font-weight: 700; margin-bottom: 15px;">Diagnóstico Multiclase</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6; margin: 0;">Clasificación automatizada de tomografías computarizadas en tres categorías esenciales para la toma de decisiones médicas:
+                                            <b>Benigno, Maligno y Normal</b> (sano). El sistema busca reducir la variabilidad humana y detectar lesiones en etapas tempranas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="Rigor-matematico" class="dtr-section dtr-py-100" style="background-color: #006341; color: #ffffff;">
+                    <div class="container">
+                        <div class="row text-center dtr-mb-50">
+                            <div class="col-12">
+                                <h2 style="color: #FFB81C; font-weight: 800; text-transform: uppercase;">Criterios Estadísticos de Validation</h2>
+                                <p>Fórmulas de optimización aplicadas para mitigar falsos negativos</p>
+                                <div style="width: 60px; height: 3px; background-color: #ffffff; margin: 15px auto 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
+                                    <h5 style="color: #FFB81C; font-weight: 700;">Sensibilidad (Recall)</h5>
+                                    <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
+                                        Mide la capacidad del sistema para detectar correctamente a los pacientes enfermos. En oncología pulmonar, esta métrica es la más crítica, ya que un falso negativo puede retrasar un tratamiento vital.
+                                    </p>
+                                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
+                                        Sensibilidad = VP / (VP + FN)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 dtr-sm-mt-30">
+                                <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
+                                    <h5 style="color: #FFB81C; font-weight: 700;">Precisión (Precision)</h5>
+                                    <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
+                                        Evalúa el porcentaje de predicciones positivas que resultaron ser correctas. Un valor alto asegura que cuando la IA marca una tomografía como "Maligna", el radiólogo cuenta con un alto grado de certeza inicial.
+                                    </p>
+                                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
+                                        Precisión = VP / (VP + FP)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 dtr-sm-mt-30">
+                                <div style="background: rgba(255,255,255,0.08); padding: 35px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); height: 100%;">
+                                    <h5 style="color: #FFB81C; font-weight: 700;">F1-Score</h5>
+                                    <p style="text-align: justify; font-size: 14px; color: #e0e0e0;">
+                                        Representa la media armónica entre la precisión y la sensibilidad. Al buscar un equilibrio perfecto entre ambas métricas, el F1-Score consolidado del 99.81% demuestra la estabilidad absoluta de la arquitectura propuesta.
+                                    </p>
+                                    <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 50px; text-align: center; font-family: monospace; font-size: 16px; margin-top: 20px; color: #FFB81C;">
+                                        F1-Score = 2 * (P * S) / (P + S)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="plans" class="dtr-section overflow-hidden dtr-section-with-bg dtr-py-100 color-white" style="background-image: url(assets/images/testimonial-bg.jpg);">
+                    <div class="dtr-overlay" style="background-color: rgba(0, 99, 65, 0.92);"></div>
+                    <div class="container">
+                        <div class="row dtr-overlay-content dtr-mb-50">
+                            <div class="col-12 text-center">
+                                <h2 style="color: #FFB81C; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Comparativa de Modelos CNN</h2>
+                                <div style="width: 60px; height: 3px; background-color: #ffffff; margin: 15px auto 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row dtr-overlay-content">
+                            <div class="col-12 col-lg-10 offset-lg-1">
+                                <i class="dtr-testimonial-icon icon-np_quote2 color-gold" style="display: none;"></i>
+                                <div class="dtr-slick-slider slick-xl-arrows dtr-testimonial-number-slider text-center">
+                                    <div class="dtr-testimonial">
+                                        <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Este modelo demostró ser el más estable y eficiente computacionalmente bajo el escenario de validación. Alcanzó la mejor combinación de métricas con una precisión del
+                                            <b>99.82%</b>, una sensibilidad del
+                                            <b>99.81%</b> y un tiempo récord de clasificación de
+                                            <b>15.91 segundos</b>. Su arquitectura con conexiones residuales evitó el desvanecimiento del gradiente, consolidándolo como la opción óptima para el sistema de apoyo al diagnóstico propuesto.
+                                        </div>
+                                        <div class="dtr-client-info clearfix dtr-mt-30">
+                                            <div class="dtr-testimonial-user">
+                                                <img src="assets/images/user-1.jpg" alt="ResNet50" style="border: 3px solid #FFB81C;">
+                                            </div>
+                                            <div class="dtr-testimonial-user-info">
+                                                <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">ResNet50</h5>
+                                                <span class="dtr-client-job color-white">El Modelo Ganador</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dtr-testimonial">
+                                        <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Mostró un desempeño altamente competitivo durante la phase de entrenamiento y validación cruzada. Su arquitectura basada en módulos Inception permite extraer características a múltiples escalas de forma paralela, logrando una excelente precisión del
+                                            <b>99.81%</b>. Sin embargo, su complejidad estructural requirió un tiempo de clasificación mayor, registrando
+                                            <b>24.46 segundos</b> por lote de imágenes médicas.
+                                        </div>
+                                        <div class="dtr-client-info clearfix dtr-mt-30">
+                                            <div class="dtr-testimonial-user">
+                                                <img src="assets/images/user-2.jpg" alt="InceptionV3" style="border: 3px solid #FFB81C;">
+                                            </div>
+                                            <div class="dtr-testimonial-user-info">
+                                                <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">InceptionV3</h5>
+                                                <span class="dtr-client-job color-white">Extracción a Múltiples Escalas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dtr-testimonial">
+                                        <div class="dtr-testimonial-content clearfix" style="text-align: justify; font-size: 17px; line-height: 1.7; padding: 0 20px;">Esta red destacó por su fuerte reutilización de características gracias a su arquitectura de conexiones densas entre capas. Obtuvo una precisión diagnóstica del
+                                            <b>98.52%</b> en la clasificación multiclase. Aunque su convergencia fue la más lenta del estudio con
+                                            <b>25.84 segundos</b>, demostró una notable capacidad para la identificación de características complejas en las tomografías.
+                                        </div>
+                                        <div class="dtr-client-info clearfix dtr-mt-30">
+                                            <div class="dtr-testimonial-user">
+                                                <img src="assets/images/user-3.jpg" alt="DenseNet201" style="border: 3px solid #FFB81C;">
+                                            </div>
+                                            <div class="dtr-testimonial-user-info">
+                                                <h5 class="dtr-client-name" style="color: #FFB81C; font-size: 22px;">DenseNet201</h5>
+                                                <span class="dtr-client-job color-white">Conexiones Densas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="blog" class="dtr-section dtr-pt-100" style="background-color: #f4f7f6;">
+                    <div class="container">
+                        <div class="dtr-section-heading text-center dtr-mb-80">
+                            <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Metodología de la Investigación</h2>
+                            <p style="color: #666;">Flujo de trabajo detallado para la evaluación de modelos CNN</p>
+                            <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 dtr-mb-40">
+                                <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
+                                    <div class="dtr-pricing-img" style="
                                 background-image: url('assets/images/icons/Analisis.png'); 
                                 background-size: contain; 
                                 background-repeat: no-repeat; 
                                 background-position: center;
                                 background-color: #ffffff;
-                            "> </div>
-                            
-                            <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
-                                <h4 style="color: #006341; font-weight: 700;">Fase 1: Adquisición y Análisis del Dataset</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6;">Se utilizó el dataset público <b>The IQ-OTH/NCCD</b>, el cual contenía originalmente 1,097 imágenes de tomografía computarizada. Se realizó un análisis inicial identificando un marcado desbalanceo entre las clases Benigno, Maligno y Normal, lo que motivó la necesidad de un tratamiento de datos especializado.</p>
-                                <div class="dtr-mt-20"><span class="color-gold" style="font-weight: bold;">[ 1,097 Imágenes Originales ]</span></div>
+                            "></div>
+                                    <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
+                                        <h4 style="color: #006341; font-weight: 700;">Fase 1: Adquisición y Análisis del Dataset</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6;">Se utilizó el dataset público
+                                            <b>The IQ-OTH/NCCD</b>, el cual contenía originalmente 1,097 imágenes de tomografía computarizada. Se realizó un análisis inicial identificando un marcado desbalanceo entre las clases Benigno, Maligno y Normal, lo que motivó la necesidad de un tratamiento de datos especializado.
+                                        </p>
+                                        <div class="dtr-mt-20">
+                                            <span class="color-gold" style="font-weight: bold;">[ 1,097 Imágenes Originales ]</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-12 dtr-mb-40">
-                        <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #FFB81C;">
-                            
-                            <div class="dtr-pricing-img" style="
+                            <div class="col-12 dtr-mb-40">
+                                <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #FFB81C;">
+                                    <div class="dtr-pricing-img" style="
                                 background-image: url('assets/images/icons/CLAHE.png'); 
                                 background-size: contain; 
                                 background-repeat: no-repeat; 
                                 background-position: center;
                                 background-color: #ffffff;
-                            "> </div>
-                            
-                            <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
-                                <h4 style="color: #006341; font-weight: 700;">Fase 2: Preprocesamiento y Aumento de Datos</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6;">Para equilibrar el dataset y mejorar la robustez, se aplicaron técnicas avanzadas de <i>Data Augmentation</i> como <b>Grid Distortion</b>, <b>CLAHE</b> y <b>Gauss Noise</b>. Esto permitió expandir el conjunto a 3,000 imágenes totales (1,000 por clase), simulando variaciones clínicas y técnicas reales.</p>
-                                <div class="dtr-mt-20"><span class="color-gold" style="font-weight: bold;">[ Balanceo: 3,000 Imágenes Totales ]</span></div>
+                            "></div>
+                                    <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
+                                        <h4 style="color: #006341; font-weight: 700;">Fase 2: Preprocesamiento y Aumento de Datos</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6;">Para equilibrar el dataset y mejorar la robustez, se aplicaron técnicas avanzadas de
+                                            <i>Data Augmentation</i> como
+                                            <b>Grid Distortion</b>,
+                                            <b>CLAHE</b> y
+                                            <b>Gauss Noise</b>. Esto permitió expandir el conjunto a 3,000 imágenes totales (1,000 por clase), simulando variaciones clínicas y técnicas reales.
+                                        </p>
+                                        <div class="dtr-mt-20">
+                                            <span class="color-gold" style="font-weight: bold;">[ Balanceo: 3,000 Imágenes Totales ]</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-12 dtr-mb-40">
-                        <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
-                            <div class="dtr-pricing-img" style="background-image: url(assets/images/icons/RestNEt50.png);"> </div>
-                            <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
-                                <h4 style="color: #006341; font-weight: 700;">Fase 3: Selección de Arquitecturas y Transfer Learning</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6;">Se seleccionaron tres arquitecturas de aprendizaje profundo: <b>ResNet50, InceptionV3 y DenseNet201</b>. Se empleó la técnica de <i>Transfer Learning</i> utilizando pesos preentrenados en ImageNet, adaptando la capa de salida para la clasificación multiclase del problema.</p>
-                                <div class="dtr-mt-20"><span class="color-gold" style="font-weight: bold;">[ Transfer Learning Aplicado ]</span></div>
+                            <div class="col-12 dtr-mb-40">
+                                <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
+                                    <div class="dtr-pricing-img" style="background-image: url(assets/images/icons/RestNEt50.png);"></div>
+                                    <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
+                                        <h4 style="color: #006341; font-weight: 700;">Fase 3: Selección de Arquitecturas y Transfer Learning</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6;">Se seleccionaron tres arquitecturas de aprendizaje profundo:
+                                            <b>ResNet50, InceptionV3 y DenseNet201</b>. Se empleó la técnica de
+                                            <i>Transfer Learning</i> utilizando pesos preentrenados en ImageNet, adaptando la capa de salida para la clasificación multiclase del problema.
+                                        </p>
+                                        <div class="dtr-mt-20">
+                                            <span class="color-gold" style="font-weight: bold;">[ Transfer Learning Aplicado ]</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 dtr-mb-40">
-                        <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #FFB81C;">
-                            
-                            <div class="dtr-pricing-img" style="
+                            <div class="col-12 dtr-mb-40">
+                                <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #FFB81C;">
+                                    <div class="dtr-pricing-img" style="
                                 background-image: url('assets/images/icons/Validación.png'); 
                                 background-size: contain; 
                                 background-repeat: no-repeat; 
                                 background-position: center;
                                 background-color: #ffffff;
-                            "> </div>
-                            
-                            <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
-                                <h4 style="color: #006341; font-weight: 700;">Fase 4: Entrenamiento con Validación Cruzada</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6;">Se implementó un esquema de <b>Validación Cruzada Estratificada con k=5 folds</b>. El dataset se dividió en una proporción de 90% para entrenamiento/validación y 10% para pruebas finales independientes, asegurando que el modelo generalizara correctamente sin sobreajuste.</p>
-                                <div class="dtr-mt-20"><span class="color-gold" style="font-weight: bold;">[ Validation Cruzada k=5 ]</span></div>
+                            "></div>
+                                    <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
+                                        <h4 style="color: #006341; font-weight: 700;">Fase 4: Entrenamiento con Validación Cruzada</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6;">Se implementó un esquema de
+                                            <b>Validación Cruzada Estratificada con k=5 folds</b>. El dataset se dividió en una proporción de 90% para entrenamiento/validación y 10% para pruebas finales independientes, asegurando que el modelo generalizara correctamente sin sobreajuste.
+                                        </p>
+                                        <div class="dtr-mt-20">
+                                            <span class="color-gold" style="font-weight: bold;">[ Validation Cruzada k=5 ]</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
-                            
-                            <div class="dtr-pricing-img" style="
+                            <div class="col-12">
+                                <div class="dtr-pricing" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px; overflow: hidden; border-left: 8px solid #006341;">
+                                    <div class="dtr-pricing-img" style="
                                 background-image: url('assets/images/icons/Metricas.png'); 
                                 background-size: contain; 
                                 background-repeat: no-repeat; 
                                 background-position: center;
                                 background-color: #ffffff;
-                            "> </div>
-                            
-                            <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
-                                <h4 style="color: #006341; font-weight: 700;">Fase 5: Evaluación de Desempeño y Métricas</h4>
-                                <p style="text-align: justify; color: #444; line-height: 1.6;">La evaluación final consideró múltiples métricas: <b>Precisión, Sensibilidad, F1-Score y Kappa de Cohen</b>. Además, se analizó la complejidad temporal para determinar la eficiencia computacional de cada modelo en un entorno de diagnóstico real.</p>
-                                <div class="dtr-mt-20"><span class="color-gold" style="font-weight: bold;">[ Evaluación Multivariable ]</span></div>
+                            "></div>
+                                    <div class="dtr-pricing-content" style="background-color: #ffffff; padding: 40px;">
+                                        <h4 style="color: #006341; font-weight: 700;">Fase 5: Evaluación de Desempeño y Métricas</h4>
+                                        <p style="text-align: justify; color: #444; line-height: 1.6;">La evaluación final consideró múltiples métricas:
+                                            <b>Precisión, Sensibilidad, F1-Score y Kappa de Cohen</b>. Además, se analizó la complejidad temporal para determinar la eficiencia computacional de cada modelo en un entorno de diagnóstico real.
+                                        </p>
+                                        <div class="dtr-mt-20">
+                                            <span class="color-gold" style="font-weight: bold;">[ Evaluación Multivariable ]</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="entorno" class="dtr-section overflow-hidden dtr-box-layout dtr-py-100" style="background-color: #ffffff;">
-
-            <div class="dtr-section-heading text-center dtr-mb-80">
-                <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Entorno de Desarrollo y Modelado</h2>
-                <p style="color: #666;">Herramientas lógicas, librerías y arquitecturas base implementadas</p>
-                <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
-            </div>
-
-            <div class="dtr-slick-slider dtr-blog-slider-3col">
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/tensorflow.png" alt="TensorFlow" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> 
-                        </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Framework <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Deep Learning</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">TensorFlow & Keras</h4>
-                        </div>
-                    </div>
-                    <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                        Entorno principal para estructurar y compilar las redes convolucionales pesadas. Facilitó la carga de pesos iniciales de ImageNet y la modificación fina de las capas densas para adaptarlas a la salida de tres clases.
-                    </div>
-                </div>
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/libreria.png" alt="OpenCV" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Librería <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Visión Artificial</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">OpenCV</h4>
-                        </div>
-                    </div>
-                    <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                        Librería nativa usada para leer y procesar las matrices de las tomografías computarizadas. Fue clave para la normalización de la iluminación y la ejecución del algoritmo CLAHE en las celdas locales de las imágenes.
-                    </div>
-                </div>
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/pytorch.png" alt="PyTorch" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Biblioteca <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Tensores</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">PyTorch (Torchvision)</h4>
-                        </div>
-                    </div>
-                    <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                        Se utilizó para agilizar la conversión de los arreglos numéricos tridimensionales en tensores lógicos directamente direccionables hacia los núcleos de procesamiento de la GPU.
-                    </div>
-                </div>
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/Scikit.jpg" alt="Scikit-Learn" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Librería <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Validación</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">Scikit-Learn</h4>
-                        </div>
-                    </div>
-                    <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                        Herramienta auxiliar empleada para segmentar de forma aleatoria y balanceada el set de datos mediante la clase Stratified K-Folds, además de automatizar los reportes analíticos de las matrices de confusión.
-                    </div>
-                </div>
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/conexiones.png" alt="GoogleNet" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Modelo CNN <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Línea Base</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">GoogleNet (Inception V1)</h4>
-                        </div>
-                    </div>
-                    <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                        Se integró al análisis experimental como punto de comparación clásico frente a InceptionV3. Demostró un comportamiento aceptable con precisiones arriba del 90%, validando la evolución de los bloques jerárquicos escalados.
-                    </div>
-                </div>
-
-                <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
-                    <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
-                        <div class="dtr-meta-left"> 
-                            <img src="assets/images/icons/Ryzen.png" alt="Hardware" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"> </div>
-                        <div class="dtr-meta-right">
-                            <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Hardware <span class="color-gold">|</span> <span class="dtr-category" style="color: #006341; font-weight: bold;">Especificaciones</span></p>
-                            <h4 style="color: #333; font-size: 20px; margin-top: 5px;">Entorno Físico de Cómputo</h4>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;"> 
-                            Para mitigar la complejidad temporal del entrenamiento matricial profundo, las iteraciones se corrieron usando un procesador AMD Ryzen 5 5500, 16GB de memoria RAM y aceleración por GPU con una Radeon RX6600.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="conclusiones-tesis" class="dtr-section dtr-py-100 bg-white">
-            <div class="container">
-                <div class="row text-center dtr-mb-50">
-                    <div class="col-12">
-                        <h2 style="color: #006341; font-weight: 800; text-transform: uppercase;">Conclusiones y Trabajo Futuro</h2>
+                </section>
+                <section id="entorno" class="dtr-section overflow-hidden dtr-box-layout dtr-py-100" style="background-color: #ffffff;">
+                    <div class="dtr-section-heading text-center dtr-mb-80">
+                        <h2 style="color: #006341; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Entorno de Desarrollo y Modelado</h2>
+                        <p style="color: #666;">Herramientas lógicas, librerías y arquitecturas base implementadas</p>
                         <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div style="padding: 20px; border-left: 4px solid #006341;">
-                            <h5 style="color: #006341; font-weight: 700;">Contribución Principal</h5>
-                            <p style="text-align: justify; color: #555; line-height: 1.6;">
-                                Se logró crear una methodology replicable de ingeniería de software y visión artificial que reduce significativamente los tiempos de cómputo en la preclasificación de nódulos de pulmón. El modelo entrenado demostró que las arquitecturas ligeras con aprendizaje por transferencia pueden igualar o superar el rendimiento de redes con mayor profundidad si el preprocesamiento con CLAHE es el adecuado.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 dtr-sm-mt-30">
-                        <div style="padding: 20px; border-left: 4px solid #FFB81C;">
-                            <h5 style="color: #006341; font-weight: 700;">Líneas de Investigación Futuras</h5>
-                            <p style="text-align: justify; color: #555; line-height: 1.6;">
-                                El siguiente paso del proyecto contempla la transición del entorno de simulación local (Google Colab) hacia arquitecturas distribuidas en la nube (AWS EC2 / Lambda) para su consumo mediante una API REST en tiempo real. Asimismo, se planea integrar mecanismos de segmentación automática profunda (U-Net) para delimitar el volumen milimétrico exacto de las masas tumorales de forma interactiva.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
-    <footer id="dtr-footer" class="dtr-section-with-bg" style="background-image: url('assets/images/footer-bg.jpg'); background-color: #1a1a1a;">
-        <div class="dtr-footer-main">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="dtr-pb-30 dtr-pr-50 dtr-sm-pr-0">
-                            <img src="assets/images/icons/NeuroScanMegro.png" alt="logo" class="dtr-mb-35" style="max-height: 45px;">
-                            <p style="text-align: justify; color: #cccccc;">Sistema de apoyo al diagnóstico radiológico desarrollado en la Universidad Autónoma del Estado de México (UAEMéx). Implementación de inteligencia computacional para el análisis automatizado de imágenes médicas.</p>
-                            <ul class="dtr-contact-widget dtr-mt-50">
-                                <li><i class="icon-map-marker color-gold"></i>Acambay, Estado de México</li>
-                                <li><i class="icon-envelope color-gold"></i><a href="mailto:navarretecfd@gmail.com">navarretecfd@gmail.com</a></li>
-                            </ul>
-                            <p class="dtr-mt-50" style="color: #777;">&copy; 2026. Francisco Daniel Navarrete Castro.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="dtr-pb-30 dtr-pr-30 dtr-sm-pr-0">
-                            <h4 style="color: #ffffff;">Créditos de Investigación<span class="color-gold">.</span></h4>
-                            <ul class="dtr-list-block dtr-mt-30" style="list-style: none; padding: 0; color: #cccccc; line-height: 1.8;">
-                                <li style="margin-bottom: 15px;">
-                                    <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">Autor / Tesista:</strong>
-                                    <span style="color: #ffffff; font-size: 16px; font-weight: bold;">Alexander Garduño Morales</span><br>
-                                    <small style="color: #aaa;">Ingeniero en Computación</small>
-                                </li>
-                                <li style="margin-bottom: 15px;">
-                                    <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">Director de Tesis:</strong>
-                                    <span style="color: #ffffff; font-size: 16px;">Dr. Everardo Efrén Granda Gutiérrez</span>
-                                </li>
-                                <li>
-                                    <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">Institución:</strong>
-                                    <span>Centro Universitario UAEM Atlacomulco</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12 col-md-12 col-lg-4">
-                        <div class="dtr-pb-30">
-                            <h4 style="color: #ffffff;">Enlaces Rápidos<span class="color-gold">.</span></h4>
-                            <div class="row dtr-mt-30">
-                                <div class="col-6">
-                                    <ul class="dtr-list-block">
-                                        <li><a href="#home">Inicio</a></li>
-                                        <li><a href="#about">Problema</a></li>
-                                        <li><a href="#services">Tecnología</a></li>
-                                        <li><a href="#plans">Comparativa</a></li>
-                                        <li><a href="#entorno">Metodología</a></li>
-                                    </ul>
+                    <div class="dtr-slick-slider dtr-blog-slider-3col">
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/tensorflow.png" alt="TensorFlow" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
                                 </div>
-                                <div class="col-6">
-                                    <ul class="dtr-list-block">
-                                        <li><a href="https://www.youtube.com/" target="_blank">YouTube (iDaniDots)</a></li>
-                                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-                                    </ul>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Framework
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Deep Learning</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">TensorFlow & Keras</h4>
+                                </div>
+                            </div>
+                            <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                Entorno principal para estructurar y compilar las redes convolucionales pesadas. Facilitó la carga de pesos iniciales de ImageNet y la modificación fina de las capas densas para adaptarlas a la salida de tres clases.
+                            </div>
+                        </div>
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/libreria.png" alt="OpenCV" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                                </div>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Librería
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Visión Artificial</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">OpenCV</h4>
+                                </div>
+                            </div>
+                            <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                Librería nativa usada para leer y procesar las matrices de las tomografías computarizadas. Fue clave para la normalización de la iluminación y la ejecución del algoritmo CLAHE en las celdas locales de las imágenes.
+                            </div>
+                        </div>
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/pytorch.png" alt="PyTorch" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                                </div>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Biblioteca
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Tensores</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">PyTorch (Torchvision)</h4>
+                                </div>
+                            </div>
+                            <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                Se utilizó para agilizar la conversión de los arreglos numéricos tridimensionales en tensores lógicos directamente direccionables hacia los núcleos de procesamiento de la GPU.
+                            </div>
+                        </div>
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/Scikit.jpg" alt="Scikit-Learn" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                                </div>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Librería
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Validación</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">Scikit-Learn</h4>
+                                </div>
+                            </div>
+                            <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                Herramienta auxiliar empleada para segmentar de forma aleatoria y balanceada el set de datos mediante la clase Stratified K-Folds, además de automatizar los reportes analíticos de las matrices de confusión.
+                            </div>
+                        </div>
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #006341;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/conexiones.png" alt="GoogleNet" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                                </div>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Modelo CNN
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Línea Base</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">GoogleNet (Inception V1)</h4>
+                                </div>
+                            </div>
+                            <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                Se integró al análisis experimental como punto de comparación clásico frente a InceptionV3. Demostró un comportamiento aceptable con precisiones arriba del 90%, validando la evolución de los bloques jerárquicos escalados.
+                            </div>
+                        </div>
+                        <div class="dtr-blog-item" style="box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                            <div class="dtr-meta" style="background-color: #f9f9f9; padding: 20px; border-bottom: 3px solid #FFB81C;">
+                                <div class="dtr-meta-left">
+                                    <img src="assets/images/icons/Ryzen.png" alt="Hardware" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                                </div>
+                                <div class="dtr-meta-right">
+                                    <p class="dtr-meta-content" style="color: #888; font-size: 13px; text-transform: uppercase;">Hardware
+                                        <span class="color-gold">|</span>
+                                        <span class="dtr-category" style="color: #006341; font-weight: bold;">Especificaciones</span>
+                                    </p>
+                                    <h4 style="color: #333; font-size: 20px; margin-top: 5px;">Entorno Físico de Cómputo</h4>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="dtr-post-content" style="padding: 25px; text-align: justify; color: #555; line-height: 1.6;">
+                                    Para mitigar la complejidad temporal del entrenamiento matricial profundo, las iteraciones se corrieron usando un procesador AMD Ryzen 5 5500, 16GB de memoria RAM y aceleración por GPU con una Radeon RX6600.
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                </section>
+                <section id="conclusiones-tesis" class="dtr-section dtr-py-100 bg-white">
+                    <div class="container">
+                        <div class="row text-center dtr-mb-50">
+                            <div class="col-12">
+                                <h2 style="color: #006341; font-weight: 800; text-transform: uppercase;">Conclusiones y Trabajo Futuro</h2>
+                                <div style="width: 60px; height: 4px; background-color: #FFB81C; margin: 20px auto 0;"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div style="padding: 20px; border-left: 4px solid #006341;">
+                                    <h5 style="color: #006341; font-weight: 700;">Contribución Principal</h5>
+                                    <p style="text-align: justify; color: #555; line-height: 1.6;">
+                                        Se logró crear una methodology replicable de ingeniería de software y visión artificial que reduce significativamente los tiempos de cómputo en la preclasificación de nódulos de pulmón. El modelo entrenado demostró que las arquitecturas ligeras con aprendizaje por transferencia pueden igualar o superar el rendimiento de redes con mayor profundidad si el preprocesamiento con CLAHE es el adecuado.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 dtr-sm-mt-30">
+                                <div style="padding: 20px; border-left: 4px solid #FFB81C;">
+                                    <h5 style="color: #006341; font-weight: 700;">Líneas de Investigación Futuras</h5>
+                                    <p style="text-align: justify; color: #555; line-height: 1.6;">
+                                        El siguiente paso del proyecto contempla la transición del entorno de simulación local (Google Colab) hacia arquitecturas distribuidas en la nube (AWS EC2 / Lambda) para su consumo mediante una API REST en tiempo real. Asimismo, se planea integrar mecanismos de segmentación automática profunda (U-Net) para delimitar el volumen milimétrico exacto de las masas tumorales de forma interactiva.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer id="dtr-footer" class="dtr-section-with-bg" style="background-image: url('assets/images/footer-bg.jpg'); background-color: #1a1a1a;">
+                <div class="dtr-footer-main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="dtr-pb-30 dtr-pr-50 dtr-sm-pr-0">
+                                    <img
+                                        src="assets/images/icons/NeuroScanMegro.png"
+                                        alt="logo"
+                                        class="dtr-mb-35"
+                                        style="max-height: 45px;"
+                                    >
+                                    <p style="text-align: justify; color: #cccccc;">Sistema de apoyo al diagnóstico radiológico desarrollado en la Universidad Autónoma del Estado de México (UAEMéx). Implementación de inteligencia computacional para el análisis automatizado de imágenes médicas.</p>
+                                    <ul class="dtr-contact-widget dtr-mt-50">
+                                        <li>
+                                            <i class="icon-map-marker color-gold"></i>Acambay, Estado de México
+                                        </li>
+                                        <li>
+                                            <i class="icon-envelope color-gold"></i>
+                                            <a href="mailto:navarretecfd@gmail.com">navarretecfd@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                    <p class="dtr-mt-50" style="color: #777;">Compilado por: Francisco Daniel Navarrete Castro.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="dtr-pb-30 dtr-pr-30 dtr-sm-pr-0">
+                                    <h4 style="color: #ffffff;">Créditos de Investigación
+                                        <span class="color-gold">.</span>
+                                    </h4>
+                                    <ul class="dtr-list-block dtr-mt-30" style="list-style: none; padding: 0; color: #cccccc; line-height: 1.8;">
+                                        <li style="margin-bottom: 15px;">
+                                            <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">Autor / Tesista:</strong>
+                                            <span style="color: #ffffff; font-size: 16px; font-weight: bold;">Alexander Garduño Morales</span>
+                                            <br>
+                                            <small style="color: #aaa;">Ingeniero en Computación</small>
+                                        </li>
+                                        <li style="margin-bottom: 15px;">
+                                            <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">
+                                                Director de Tesis:
+                                            </strong>
+                                            <span style="color: #ffffff; font-size: 16px;">
+                                                Dr. Everardo Efrén Granda Gutiérrez
+                                            </span>
+                                            <br>
+                                            <small style="color: #aaa;">
+                                                eegrandag@uaemex.mx
+                                            </small>
+                                        </li>
+                                        <strong style="color: #FFB81C; display: block; font-size: 14px; text-transform: uppercase;">Lugar:</strong>
+                                        <span>Atlacomulco</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-4">
+                            <div class="dtr-pb-30">
+                                <h4 style="color: #ffffff;">Enlaces Rápidos
+                                    <span class="color-gold">.</span>
+                                </h4>
+                                <div class="row dtr-mt-30">
+                                    <div class="col-6">
+                                        <ul class="dtr-list-block">
+                                            <li>
+                                                <a href="#home">Inicio</a>
+                                            </li>
+                                            <li>
+                                                <a href="#about">Problema</a>
+                                            </li>
+                                            <li>
+                                                <a href="#services">Tecnología</a>
+                                            </li>
+                                            <li>
+                                                <a href="#plans">Comparativa</a>
+                                            </li>
+                                            <li>
+                                                <a href="#entorno">Metodología</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="dtr-list-block">
+                                            <li>
+                                                <a href="https://www.youtube.com/" target="_blank">YouTube (iDaniDots)</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/" target="_blank">GitHub</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-
-</div>
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/custom.js"></script>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/custom.js"></script>
 </body>
 </html>
